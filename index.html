@@ -223,6 +223,8 @@
             <button onclick="showAgreement('class-funds')">班费记录明细</button>
             <button onclick="showAgreement('psychological')">智能心理测量系统</button>
             <button onclick="showAgreement('admin')">数据中心</button>
+            <button onclick="showContent('school-info')">信息查询系统</button>
+            <button onclick="showCommitteeInfo()">班委会成员信息</button>
         </div>
     </div>
 
@@ -246,6 +248,60 @@
         </div>
     </div>
 
+    <!-- 班委会成员信息 -->
+    <div id="committee-info" class="content">
+        <h2>班委会成员信息</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>职务</th>
+                    <th>姓名</th>
+                    <th>联系方式</th>
+                    <th>负责管理范围</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>班长</td>
+                    <td>邹昕燃</td>
+                    <td>不对外公布</td>
+                    <td>班级日常管理</td>
+                </tr>
+                <tr>
+                    <td>副班长</td>
+                    <td>王焱</td>
+                    <td>不对外公布</td>
+                    <td>协助班长管理班级</td>
+                </tr>
+                <tr>
+                    <td>副班长</td>
+                    <td>马菡</td>
+                    <td>不对外公布</td>
+                    <td>协助班长管理班级</td>
+                </tr>
+                <tr>
+                    <td>待更新</td>
+                    <td>王瑞艺</td>
+                    <td>不对外公布</td>
+                    <td>班级日常记录</td>
+                </tr>
+                <tr>
+                    <td>待更新</td>
+                    <td>杨宇航</td>
+                    <td>不对外公布</td>
+                    <td>班级卫生事务</td>
+                </tr>
+                <tr>
+                    <td>待更新</td>
+                    <td>系统维护中</td>
+                    <td>待更新</td>
+                    <td>待更新</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="return-btn" onclick="showHome()">返回上一页</button>
+    </div>
+
     <!-- 学生赋分记录 -->
     <div id="student-performance" class="content">
         <h2>学生赋分记录</h2>
@@ -266,7 +322,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 数据 -->
                     <tr>
                         <td>张云松</td>
                         <td>2025-3-1</td>
@@ -295,6 +350,18 @@
                         <td>杨宇航</td>
                         <td>2025-4-10</td>
                         <td>校服原因</td>
+                        <td>-1分</td>
+                    </tr>
+                    <tr>
+                        <td>丁彬</td>
+                        <td>2025-4-22</td>
+                        <td>校服原因</td>
+                        <td>-1分</td>
+                    </tr>
+                    <tr>
+                        <td>张键</td>
+                        <td>2025-4-25</td>
+                        <td>迟到</td>
                         <td>-1分</td>
                     </tr>
                 </tbody>
@@ -343,12 +410,47 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 数据 -->
                     <tr>
                         <td>丁彬</td>
                         <td>2025-4-10</td>
                         <td>桌面等多处区域不整洁</td>
                         <td>已完成处理</td>
+                    </tr>
+                    <tr>
+                        <td>张键</td>
+                        <td>2025-4-11</td>
+                        <td>座位不整洁</td>
+                        <td>劳动委员记</td>
+                    </tr>
+                    <tr>
+                        <td>杨芳茗</td>
+                        <td>2025-4-11</td>
+                        <td>座位不整洁</td>
+                        <td>劳动委员记</td>
+                    </tr>
+                    <tr>
+                        <td>丁彬</td>
+                        <td>2025-4-20</td>
+                        <td>桌面等多处区域不整洁</td>
+                        <td>劳动委员记</td>
+                    </tr>
+                    <tr>
+                        <td>丁彬</td>
+                        <td>2025-4-21</td>
+                        <td>桌面等多处区域不整洁</td>
+                        <td>劳动委员记</td>
+                    </tr>
+                    <tr>
+                        <td>丁彬</td>
+                        <td>2025-4-28</td>
+                        <td>桌面等多处区域不整洁</td>
+                        <td>劳动委员记</td>
+                    </tr>
+                    <tr>
+                        <td>张键</td>
+                        <td>2025-4-28</td>
+                        <td>座位不整洁</td>
+                        <td>劳动委员记</td>
                     </tr>
                 </tbody>
             </table>
@@ -377,13 +479,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 示例数据 -->
                     <tr>
-                        <td> 一 </td>
-                        <td> 一 </td>
+                        <td>未知</td>
+                        <td>未知</td>
                         <td>系统维护中</td>
-                        <td> 一 </td>
-                        <td> 一 </td>
+                        <td>未知</td>
+                        <td>未知</td>
                     </tr>
                 </tbody>
             </table>
@@ -418,7 +519,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 数据 -->
                     <tr>
                         <td>刘雨晴</td>
                         <td>375</td>
@@ -650,14 +750,42 @@
         </div>
     </div>
 
+    <!-- 信息查询系统 -->
+    <div id="school-info" class="content">
+        <h2>信息查询系统</h2>
+        <div id="info-agreement">
+            <h3>请先阅读以下须知</h3>
+            <div class="agreement-terms">
+                <ul>
+                    <li>仅提供大安市第六中学高一、高二、高三的相关信息查询。</li>
+                    <li>请勿将查询结果用于非授权目的。</li>
+                    <li>如遇到问题，请与高一四班联系。</li>
+                    <li>信息查询只会在一定时间内开放</li>
+                </ul>
+            </div>
+            <div class="agreement-buttons">
+                <button onclick="showInfoContent()">同意</button>
+                <button class="return-btn" onclick="showHome()">返回</button>
+            </div>
+        </div>
+        <div id="info-content" class="hidden">
+            <div class="buttons">
+                <button onclick="gotoURL('https://www.x.com/high1')">高一信息</button>
+                <button onclick="gotoURL('https://www.x.com/high2')">高二信息</button>
+                <button onclick="gotoURL('https://www.x.com/high3')">高三信息</button>
+            </div>
+            <button class="return-btn" onclick="showHome()">返回上一页</button>
+        </div>
+    </div>
+
     <script>
         // 存储数据的对象
         let data = {
             performance: [
                 { name: "张云松", date: "2025-3-1", reason: "迟到", note: "-1分" },
-                { name: "赵慧鑫", date: "未知", reason: "佩戴耳钉", note: "-1分" },
-                { name: "徐诗雨", date: "未知", reason: "佩戴耳钉", note: "-1分" },
-                { name: "倪硕", date: "未知", reason: "佩戴戒指", note: "-1分" },
+                { name: "赵慧鑫", date: "2025-3-7", reason: "佩戴耳钉", note: "-1分" },
+                { name: "徐诗雨", date: "2025-3-7", reason: "佩戴耳钉", note: "-1分" },
+                { name: "倪硕", date: "2025-3-7", reason: "佩戴戒指", note: "-1分" },
                 { name: "杨宇航", date: "2025-4-10", reason: "校服原因", note: "-1分" }
             ],
             academic: [
@@ -775,7 +903,7 @@
             }
         }
 
-        // 搜索功能
+        // 搜索
         function searchAcademic() {
             const name = document.getElementById('student-name').value;
             const resultDiv = document.getElementById('academic-result');
@@ -806,6 +934,26 @@
             }
 
             resultDiv.innerHTML = result;
+        }
+
+        // 显示班委会成员信息
+        function showCommitteeInfo() {
+            if (!agreementShown) {
+                document.getElementById('user-agreement').style.display = 'block';
+                localStorage.setItem('targetContent', 'committee-info');
+            } else {
+                showContent('committee-info');
+            }
+        }
+
+        // 信息查询系统
+        function showInfoContent() {
+            document.getElementById('info-agreement').style.display = 'none';
+            document.getElementById('info-content').style.display = 'block';
+        }
+
+        function gotoURL(url) {
+            window.open(url, '_blank');
         }
     </script>
 </body>

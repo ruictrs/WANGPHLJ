@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高一四班信息网</title>
+    <title>WANGPHLJ</title>
     <style>
         * {
             box-sizing: border-box;
@@ -89,6 +89,17 @@
             font-size: 0.8rem;
         }
         
+        /* 调整班级卫生记录表格的样式 */
+        #hygiene-table th, #hygiene-table td {
+            padding: 0.3rem;
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
+        
+        #hygiene-table {
+            font-size: 0.8rem;
+        }
+        
         .form-group {
             margin-bottom: 1rem;
         }
@@ -115,12 +126,12 @@
         
         .modal-content {
             background-color: white;
-            margin: 20% auto; /* 调整用户须知的垂直位置 */
+            margin: 20% auto;
             padding: 1.5rem;
             border-radius: 5px;
             width: 90%;
             max-width: 500px;
-            position: relative; /* 用于定位关闭按钮 */
+            position: relative;
         }
         
         .close {
@@ -171,16 +182,15 @@
             display: flex;
             flex-direction: column;
             margin-top: 1rem;
-            align-items: center; /* 按钮居中 */
+            align-items: center;
         }
         
         .agreement-btn {
-            width: 120px; /* 按钮变长 */
+            width: 120px;
             height: 40px;
             margin-bottom: 0.5rem;
         }
         
-        /* 用户须知条款对齐 */
         .agreement-terms {
             margin: 1.5rem 0;
         }
@@ -191,6 +201,21 @@
         
         .agreement-terms li {
             margin-bottom: 0.5rem;
+        }
+        
+        .countdown {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #f44336;
+        }
+        
+        .disabled-btn {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .disabled-btn:hover {
+            background-color: #cccccc;
         }
         
         @media (max-width: 600px) {
@@ -207,99 +232,23 @@
 </head>
 <body>
     <header>
-        <h1>高一四班信息网</h1>
+        <h1>WANGPHLJ</h1>
     </header>
 
     <div class="container" id="home">
         <div class="announcement">
             <h3>公告</h3>
-            <p>学生赋分记录仅显示本学期，成绩查询只有最近一个月的考试成绩并只能看见总分和排名，班费记录明细系统正在维护中。</p>
+            <p>祝全校考生取得好成绩</p>
         </div>
         
         <div class="buttons">
-            <button onclick="showAgreement('student-performance')">学生赋分记录</button>
-            <button onclick="showAgreement('academic-performance')">成绩查询</button>
-            <button onclick="showAgreement('hygiene-records')">班级卫生方面不达标记录</button>
-            <button onclick="showAgreement('class-funds')">班费记录明细</button>
-            <button onclick="showAgreement('psychological')">智能心理测量系统</button>
-            <button onclick="showAgreement('admin')">数据中心</button>
+            <button onclick="showContent('academic-performance')">高一全年组成绩查询</button>
+            <button onclick="gotoPsychological()">智能心理测量系统</button>
             <button onclick="showContent('school-info')">信息查询系统</button>
-            <button onclick="showCommitteeInfo()">班委会成员信息</button>
+            <button onclick="showContent('student-performance')">学生赋分记录</button>
+            <button onclick="showContent('hygiene-records')">班级日常管理记录</button>
+            <button onclick="showContent('class-funds')">班费记录明细</button>
         </div>
-    </div>
-
-    <!-- 用户须知 -->
-    <div id="user-agreement" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeAgreement()">&times;</span>
-            <h2 style="text-align: center; margin-bottom: 1rem;">学生须知</h2>
-            <div class="agreement-terms">
-                <ul>
-                    <li>为了保证信息安全请勿将密码泄露给其他班级学生。</li>
-                    <li>请勿在未经授权的情况下访问他人信息。</li>
-                    <li>如果遇到任何问题，例如错误信息，请及时上报。</li>
-                    <li>本网站的最终解释权归高一四班所有。</li>
-                </ul>
-            </div>
-            <div class="agreement-buttons">
-                <button class="agreement-btn" onclick="agreeTerms()">同意</button>
-                <button class="agreement-btn" onclick="disagreeTerms()">不同意</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 班委会成员信息 -->
-    <div id="committee-info" class="content">
-        <h2>班委会成员信息</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>职务</th>
-                    <th>姓名</th>
-                    <th>联系方式</th>
-                    <th>负责管理范围</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>班长</td>
-                    <td>邹昕燃</td>
-                    <td>不对外公布</td>
-                    <td>班级日常管理</td>
-                </tr>
-                <tr>
-                    <td>副班长</td>
-                    <td>王焱</td>
-                    <td>不对外公布</td>
-                    <td>协助班长管理班级</td>
-                </tr>
-                <tr>
-                    <td>副班长</td>
-                    <td>马菡</td>
-                    <td>不对外公布</td>
-                    <td>协助班长管理班级</td>
-                </tr>
-                <tr>
-                    <td>待更新</td>
-                    <td>王瑞艺</td>
-                    <td>不对外公布</td>
-                    <td>班级日常记录</td>
-                </tr>
-                <tr>
-                    <td>待更新</td>
-                    <td>杨宇航</td>
-                    <td>不对外公布</td>
-                    <td>班级卫生事务</td>
-                </tr>
-                <tr>
-                    <td>待更新</td>
-                    <td>系统维护中</td>
-                    <td>待更新</td>
-                    <td>待更新</td>
-                </tr>
-            </tbody>
-        </table>
-        <button class="return-btn" onclick="showHome()">返回上一页</button>
     </div>
 
     <!-- 学生赋分记录 -->
@@ -372,21 +321,21 @@
 
     <!-- 成绩查询 -->
     <div id="academic-performance" class="content">
-        <h2>成绩查询</h2>
-        <div id="academic-login">
-            <h3>请输入密码</h3>
-            <input type="password" id="academic-password" placeholder="密码">
-            <button onclick="checkPassword('academic', '11044')">确认</button>
-            <button class="return-btn" onclick="showHome()">返回</button>
-        </div>
-        <div id="academic-content" class="hidden">
-            <div class="form-group">
-                <label for="student-name">学生姓名：</label>
-                <input type="text" id="student-name" placeholder="请输入学生姓名">
+        <div id="academic-agreement">
+            <h3>请先阅读以下须知</h3>
+            <div class="agreement-terms">
+                <ul>
+                    <li>成绩查询功能仅提供大安市第六中学高一年组，参与考试的科目成绩进行查询。</li>
+                    <li>进入网站后，请点击2024白城市中考成绩查询，考号就是班级，例：一班输入"11"，二班输入"12"以此类推，身份证输入名字，按此方法方可查询。</li>
+                    <li>同样支持班级排名，年组排名。</li>
+                    <li>如遇到问题，请向efhshf@qq.com发送邮件进行反馈</li>
+                </ul>
             </div>
-            <button onclick="searchAcademic()">查询</button>
-            <div id="academic-result"></div>
-            <button class="return-btn" onclick="showHome()">返回上一页</button>
+            <div class="countdown" id="academic-countdown"></div>
+            <div class="agreement-buttons">
+                <button id="academic-agree-btn" disabled>同意</button>
+                <button class="return-btn" onclick="showHome()">不同意</button>
+            </div>
         </div>
     </div>
 
@@ -480,269 +429,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>未知</td>
-                        <td>未知</td>
-                        <td>系统维护中</td>
-                        <td>未知</td>
-                        <td>未知</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="return-btn" onclick="showHome()">返回上一页</button>
-        </div>
-    </div>
-
-    <!-- 智能心理测量系统 -->
-    <div id="psychological" class="content">
-        <h2>智能心理测量系统</h2>
-        <a href="https://sphlj.netlify.app/" target="_blank">点击访问智能心理测量系统</a>
-        <button class="return-btn" onclick="showHome()">返回上一页</button>
-    </div>
-
-    <!-- 数据中心 -->
-    <div id="admin" class="content">
-        <h2>数据中心</h2>
-        <div id="admin-login">
-            <h3>请输入高级密码</h3>
-            <input type="password" id="admin-password" placeholder="密码">
-            <button onclick="checkPassword('admin', 'admin11044')">确认</button>
-            <button class="return-btn" onclick="showHome()">返回</button>
-        </div>
-        <div id="admin-content" class="hidden">
-            <h3>查看所有成绩</h3>
-            <table id="admin-academic-table">
-                <thead>
-                    <tr>
-                        <th>姓名</th>
-                        <th>总分</th>
-                        <th>排名</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>刘雨晴</td>
-                        <td>375</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>张键</td>
-                        <td>355.5</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>倪硕</td>
-                        <td>313.5</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>张洋</td>
-                        <td>300</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>刘蕊宁</td>
-                        <td>299.5</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>徐诗雨</td>
-                        <td>285</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>王煜丹</td>
-                        <td>274.5</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>张奕涵</td>
-                        <td>274</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>刘小玉</td>
-                        <td>271</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td>张浚钊</td>
-                        <td>269.5</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>荆杰超</td>
-                        <td>261</td>
-                        <td>11</td>
-                    </tr>
-                    <tr>
-                        <td>周麟朔</td>
-                        <td>258</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>杨宇航</td>
-                        <td>248.5</td>
-                        <td>13</td>
-                    </tr>
-                    <tr>
-                        <td>于洪宇</td>
-                        <td>233</td>
-                        <td>14</td>
-                    </tr>
-                    <tr>
-                        <td>来春雪</td>
-                        <td>232.5</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>王鑫童</td>
-                        <td>231.5</td>
-                        <td>16</td>
-                    </tr>
-                    <tr>
-                        <td>戚世涵</td>
-                        <td>222</td>
-                        <td>17</td>
-                    </tr>
-                    <tr>
-                        <td>赵恒</td>
-                        <td>220.5</td>
-                        <td>18</td>
-                    </tr>
-                    <tr>
-                        <td>丁彬</td>
-                        <td>220</td>
-                        <td>19</td>
-                    </tr>
-                    <tr>
-                        <td>李家祥</td>
-                        <td>218.5</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>孙嫚娇</td>
-                        <td>218</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td>吴君翔</td>
-                        <td>211.5</td>
-                        <td>22</td>
-                    </tr>
-                    <tr>
-                        <td>赵慧鑫</td>
-                        <td>210</td>
-                        <td>23</td>
-                    </tr>
-                    <tr>
-                        <td>马菡</td>
-                        <td>203</td>
-                        <td>24</td>
-                    </tr>
-                    <tr>
-                        <td>田青斗</td>
-                        <td>201</td>
-                        <td>25</td>
-                    </tr>
-                    <tr>
-                        <td>刘赫</td>
-                        <td>200.5</td>
-                        <td>26</td>
-                    </tr>
-                    <tr>
-                        <td>何雨聪</td>
-                        <td>183</td>
-                        <td>27</td>
-                    </tr>
-                    <tr>
-                        <td>谷雨洋</td>
-                        <td>180</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td>郑书宜</td>
-                        <td>179.5</td>
-                        <td>29</td>
-                    </tr>
-                    <tr>
-                        <td>张宇麒</td>
-                        <td>176</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>杨芳茗</td>
-                        <td>172.5</td>
-                        <td>31</td>
-                    </tr>
-                    <tr>
-                        <td>苏靖琪</td>
-                        <td>159</td>
-                        <td>32</td>
-                    </tr>
-                    <tr>
-                        <td>王雪琦</td>
-                        <td>157.5</td>
-                        <td>33</td>
-                    </tr>
-                    <tr>
-                        <td>郑文雪</td>
-                        <td>156</td>
-                        <td>34</td>
-                    </tr>
-                    <tr>
-                        <td>潘涵</td>
-                        <td>148.5</td>
-                        <td>35</td>
-                    </tr>
-                    <tr>
-                        <td>邹雨函</td>
-                        <td>146.5</td>
-                        <td>36</td>
-                    </tr>
-                    <tr>
-                        <td>胡尚昆</td>
-                        <td>133.5</td>
-                        <td>37</td>
-                    </tr>
-                    <tr>
-                        <td>张云松</td>
-                        <td>124</td>
-                        <td>38</td>
-                    </tr>
-                    <tr>
-                        <td>崔宏硕</td>
-                        <td>117</td>
-                        <td>39</td>
-                    </tr>
-                    <tr>
-                        <td>程大勇</td>
-                        <td>110</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <td>郑阳阳</td>
-                        <td>103.5</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td>王楚鑫</td>
-                        <td>89.5</td>
-                        <td>42</td>
-                    </tr>
-                    <tr>
-                        <td>葛硕博</td>
-                        <td>77.5</td>
-                        <td>43</td>
-                    </tr>
-                    <tr>
-                        <td>王焱</td>
-                        <td>27</td>
-                        <td>44</td>
-                    </tr>
-                    <tr>
-                        <td>杨雨姗</td>
-                        <td>0</td>
-                        <td>45</td>
+                        <td>——</td>
+                        <td>——</td>
+                        <td>系统维护</td>
+                        <td>——</td>
+                        <td>——</td>
                     </tr>
                 </tbody>
             </table>
@@ -757,133 +448,54 @@
             <h3>请先阅读以下须知</h3>
             <div class="agreement-terms">
                 <ul>
-                    <li>仅提供大安市第六中学高一、高二、高三的相关信息查询。</li>
-                    <li>请勿将查询结果用于非授权目的。</li>
-                    <li>如遇到问题，请与高一四班联系。</li>
-                    <li>信息查询只会在一定时间内开放</li>
+                    <li>仅提供大安市第六中学高一(2024)、高二(2023)、高三(2022)的相关信息查询。</li>
+                    <li>请勿将查询结果用于非法目的。</li>
+                    <li>如遇到问题，请向efhshf@qq.com发送邮件进行反馈。</li>
+                    <li>为保证数据安全，信息查询只会在一定时间内开放</li>
                 </ul>
             </div>
             <div class="agreement-buttons">
                 <button onclick="showInfoContent()">同意</button>
-                <button class="return-btn" onclick="showHome()">返回</button>
+                <button class="return-btn" onclick="showHome()">不同意</button>
             </div>
         </div>
         <div id="info-content" class="hidden">
             <div class="buttons">
-                <button onclick="gotoURL('https://usebeaiwangphlj.netlify.app/')">高一信息</button>
-                <button onclick="gotoURL('https://usebeaiwangphlj2.netlify.app/')">高二信息</button>
-                <button onclick="gotoURL('https://usebeaiwangphlj3.netlify.app/')">高三信息</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj.netlify.app/')">高一信息(2024)</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj2.netlify.app/')">高二信息(2023)</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj3.netlify.app/')">高三信息(2022)</button>
             </div>
             <button class="return-btn" onclick="showHome()">返回</button>
         </div>
     </div>
 
     <script>
-        // 存储数据的对象
-        let data = {
-            performance: [
-                { name: "张云松", date: "2025-3-1", reason: "迟到", note: "-1分" },
-                { name: "赵慧鑫", date: "2025-3-7", reason: "佩戴耳钉", note: "-1分" },
-                { name: "徐诗雨", date: "2025-3-7", reason: "佩戴耳钉", note: "-1分" },
-                { name: "倪硕", date: "2025-3-7", reason: "佩戴戒指", note: "-1分" },
-                { name: "杨宇航", date: "2025-4-10", reason: "校服原因", note: "-1分" }
-            ],
-            academic: [
-                { name: "刘雨晴", total: 375, rank: 1 },
-                { name: "张键", total: 355.5, rank: 2 },
-                { name: "倪硕", total: 313.5, rank: 3 },
-                { name: "张洋", total: 300, rank: 4 },
-                { name: "刘蕊宁", total: 299.5, rank: 5 },
-                { name: "徐诗雨", total: 285, rank: 6 },
-                { name: "王煜丹", total: 274.5, rank: 7 },
-                { name: "张奕涵", total: 274, rank: 8 },
-                { name: "刘小玉", total: 271, rank: 9 },
-                { name: "张浚钊", total: 269.5, rank: 10 },
-                { name: "荆杰超", total: 261, rank: 11 },
-                { name: "周麟朔", total: 258, rank: 12 },
-                { name: "杨宇航", total: 248.5, rank: 13 },
-                { name: "于洪宇", total: 233, rank: 14 },
-                { name: "来春雪", total: 232.5, rank: 15 },
-                { name: "王鑫童", total: 231.5, rank: 16 },
-                { name: "戚世涵", total: 222, rank: 17 },
-                { name: "赵恒", total: 220.5, rank: 18 },
-                { name: "丁彬", total: 220, rank: 19 },
-                { name: "李家祥", total: 218.5, rank: 20 },
-                { name: "孙嫚娇", total: 218, rank: 21 },
-                { name: "吴君翔", total: 211.5, rank: 22 },
-                { name: "赵慧鑫", total: 210, rank: 23 },
-                { name: "马菡", total: 203, rank: 24 },
-                { name: "田青斗", total: 201, rank: 25 },
-                { name: "刘赫", total: 200.5, rank: 26 },
-                { name: "何雨聪", total: 183, rank: 27 },
-                { name: "谷雨洋", total: 180, rank: 28 },
-                { name: "郑书宜", total: 179.5, rank: 29 },
-                { name: "张宇麒", total: 176, rank: 30 },
-                { name: "杨芳茗", total: 172.5, rank: 31 },
-                { name: "苏靖琪", total: 159, rank: 32 },
-                { name: "王雪琦", total: 157.5, rank: 33 },
-                { name: "郑文雪", total: 156, rank: 34 },
-                { name: "潘涵", total: 148.5, rank: 35 },
-                { name: "邹雨函", total: 146.5, rank: 36 },
-                { name: "胡尚昆", total: 133.5, rank: 37 },
-                { name: "张云松", total: 124, rank: 38 },
-                { name: "崔宏硕", total: 117, rank: 39 },
-                { name: "程大勇", total: 110, rank: 40 },
-                { name: "郑阳阳", total: 103.5, rank: 41 },
-                { name: "王楚鑫", total: 89.5, rank: 42 },
-                { name: "葛硕博", total: 77.5, rank: 43 },
-                { name: "王焱", total: 27, rank: 44 },
-                { name: "杨雨姗", total: 0, rank: 45 }
-            ],
-            hygiene: [
-                { name: "丁彬", date: "2025-4-10", reason: "桌面等多处区域不整洁", note: "已完成处理" }
-            ],
-            funds: [
-                { date: "未知", reason: "未知", note: "系统维护中", amount: "未知", remaining: "未知" }
-            ]
-        };
-
         // 密码对象
         let passwords = {
             performance: "11044",
-            academic: "11044",
             hygiene: "11044",
-            funds: "11044",
-            admin: "admin11044"
+            funds: "11044"
         };
-
-        // 显示用户须知
-        let agreementShown = false;
-
-        function showAgreement(contentId) {
-            if (!agreementShown) {
-                document.getElementById('user-agreement').style.display = 'block';
-                localStorage.setItem('targetContent', contentId);
-            } else {
-                showContent(contentId);
-            }
-        }
-
-        function agreeTerms() {
-            agreementShown = true;
-            document.getElementById('user-agreement').style.display = 'none';
-            const targetContent = localStorage.getItem('targetContent');
-            showContent(targetContent);
-        }
-
-        function disagreeTerms() {
-            document.getElementById('user-agreement').style.display = 'none';
-        }
-
-        function closeAgreement() {
-            document.getElementById('user-agreement').style.display = 'none';
-        }
+        
+        // 标记密码是否已验证
+        let isPasswordCorrect = false;
 
         // 显示内容
         function showContent(contentId) {
             document.getElementById('home').style.display = 'none';
             document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
             document.getElementById(contentId).style.display = 'block';
+            
+            // 如果是需要密码的页面且密码已验证，直接显示内容
+            if ((contentId === 'student-performance' || contentId === 'hygiene-records' || contentId === 'class-funds') && isPasswordCorrect) {
+                document.getElementById(`${contentId}-login`).classList.add('hidden');
+                document.getElementById(`${contentId}-content`).classList.remove('hidden');
+            }
+            
+            // 如果是成绩查询页面，初始化倒计时
+            if (contentId === 'academic-performance') {
+                startAcademicCountdown();
+            }
         }
 
         // 返回首页
@@ -898,52 +510,35 @@
             if (input.value === correctPassword) {
                 document.getElementById(`${module}-login`).classList.add('hidden');
                 document.getElementById(`${module}-content`).classList.remove('hidden');
+                isPasswordCorrect = true;
+                
+                // 如果密码验证通过，其他需要密码的模块也自动显示内容
+                if (module === 'performance' || module === 'hygiene' || module === 'funds') {
+                    if (module === 'performance') {
+                        document.getElementById('hygiene-login').classList.add('hidden');
+                        document.getElementById('hygiene-content').classList.remove('hidden');
+                        document.getElementById('funds-login').classList.add('hidden');
+                        document.getElementById('funds-content').classList.remove('hidden');
+                    } else if (module === 'hygiene') {
+                        document.getElementById('performance-login').classList.add('hidden');
+                        document.getElementById('performance-content').classList.remove('hidden');
+                        document.getElementById('funds-login').classList.add('hidden');
+                        document.getElementById('funds-content').classList.remove('hidden');
+                    } else if (module === 'funds') {
+                        document.getElementById('performance-login').classList.add('hidden');
+                        document.getElementById('performance-content').classList.remove('hidden');
+                        document.getElementById('hygiene-login').classList.add('hidden');
+                        document.getElementById('hygiene-content').classList.remove('hidden');
+                    }
+                }
             } else {
                 alert('密码错误！');
             }
         }
 
-        // 搜索
-        function searchAcademic() {
-            const name = document.getElementById('student-name').value;
-            const resultDiv = document.getElementById('academic-result');
-            let result = '';
-
-            if (!name) {
-                result = '<p>请输入学生姓名</p>';
-            } else {
-                const student = data.academic.find(s => s.name === name);
-                if (student) {
-                    result = `
-                        <table>
-                            <tr>
-                                <th>姓名</th>
-                                <th>总分</th>
-                                <th>排名</th>
-                            </tr>
-                            <tr>
-                                <td>${student.name}</td>
-                                <td>${student.total}</td>
-                                <td>${student.rank}</td>
-                            </tr>
-                        </table>
-                    `;
-                } else {
-                    result = `<p>未找到 ${name} 的成绩记录</p>`;
-                }
-            }
-
-            resultDiv.innerHTML = result;
-        }
-
-        // 显示班委会成员信息
-        function showCommitteeInfo() {
-            if (!agreementShown) {
-                document.getElementById('user-agreement').style.display = 'block';
-                localStorage.setItem('targetContent', 'committee-info');
-            } else {
-                showContent('committee-info');
-            }
+        // 成绩查询跳转到指定网址
+        function gotoAcademicURL() {
+            window.location.href = 'https://ttextt.netlify.app';
         }
 
         // 信息查询系统
@@ -954,6 +549,43 @@
 
         function gotoURL(url) {
             window.open(url, '_blank');
+        }
+        
+        // 成绩查询倒计时
+        function startAcademicCountdown() {
+            let countdown = 10;
+            const countdownElement = document.getElementById('academic-countdown');
+            const agreeButton = document.getElementById('academic-agree-btn');
+            const disagreeButton = document.querySelector('#academic-agreement .return-btn'); // 获取不同意按钮
+            
+            agreeButton.disabled = true;
+            disagreeButton.disabled = true;
+            agreeButton.classList.add('disabled-btn'); // 添加灰色样式
+            disagreeButton.classList.add('disabled-btn'); // 添加灰色样式
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = `${countdown}秒后可以进行操作(请认真阅读使用方法)`;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    agreeButton.disabled = false;
+                    disagreeButton.disabled = false;
+                    agreeButton.classList.remove('disabled-btn'); // 移除灰色样式
+                    disagreeButton.classList.remove('disabled-btn'); // 移除灰色样式
+                    countdownElement.textContent = '      ';
+                }
+            }, 1000);
+            
+            agreeButton.onclick = function() {
+                clearInterval(countdownInterval);
+                gotoAcademicURL();
+            };
+        }
+        
+        // 智能心理测量系统跳转
+        function gotoPsychological() {
+            window.open('https://sphlj.netlify.app/', '_blank');
         }
     </script>
 </body>

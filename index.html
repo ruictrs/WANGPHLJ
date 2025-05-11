@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WANGPHLJ</title>
+    <title>常理业CHLY</title>
     <style>
         * {
             box-sizing: border-box;
@@ -238,7 +238,7 @@
     <div class="container" id="home">
         <div class="announcement">
             <h3>公告</h3>
-            <p>祝全校考生取得好成绩</p>
+            <p>祝所有考生取得好成绩！</p>
         </div>
         
         <div class="buttons">
@@ -326,12 +326,12 @@
             <div class="agreement-terms">
                 <ul>
                     <li>成绩查询功能仅提供大安市第六中学高一年组，参与考试的科目成绩进行查询。</li>
-                    <li>进入网站后，请点击2024白城市中考成绩查询，考号就是班级，例：一班输入"11"，二班输入"12"以此类推，身份证输入名字，按此方法方可查询。</li>
-                    <li>同样支持班级排名，年组排名。</li>
+                    <li>进入网站后，班级编号处，一班输入"11"，二班输入"12"依次类推。</li>
+                    <li>网站同样支持班级排名，年组排名等。</li>
                     <li>如遇到问题，请向efhshf@qq.com发送邮件进行反馈</li>
                 </ul>
             </div>
-            <div class="countdown" id="academic-countdown"></div>
+            <div class="countdown" id="academic-countdown">PASS</div>
             <div class="agreement-buttons">
                 <button id="academic-agree-btn" disabled>同意</button>
                 <button class="return-btn" onclick="showHome()">不同意</button>
@@ -461,9 +461,9 @@
         </div>
         <div id="info-content" class="hidden">
             <div class="buttons">
-                <button onclick="gotoURL('https://usebeaiwangphlj.netlify.app/')">高一信息(2024)</button>
-                <button onclick="gotoURL('https://usebeaiwangphlj2.netlify.app/')">高二信息(2023)</button>
-                <button onclick="gotoURL('https://usebeaiwangphlj3.netlify.app/')">高三信息(2022)</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj.netlify.app/')">高一信息</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj2.netlify.app/')">高二信息</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj3.netlify.app/')">高三信息</button>
             </div>
             <button class="return-btn" onclick="showHome()">返回</button>
         </div>
@@ -538,7 +538,7 @@
 
         // 成绩查询跳转到指定网址
         function gotoAcademicURL() {
-            window.location.href = 'https://ttextt.netlify.app';
+            window.location.href = 'https://chly.netlify.app/';
         }
 
         // 信息查询系统
@@ -573,7 +573,7 @@
                     disagreeButton.disabled = false;
                     agreeButton.classList.remove('disabled-btn'); // 移除灰色样式
                     disagreeButton.classList.remove('disabled-btn'); // 移除灰色样式
-                    countdownElement.textContent = '      ';
+                    countdownElement.textContent = 'PASS';
                 }
             }, 1000);
             

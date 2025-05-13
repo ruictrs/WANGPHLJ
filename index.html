@@ -238,11 +238,11 @@
     <div class="container" id="home">
         <div class="announcement">
             <h3>公告</h3>
-            <p>祝所有考生取得好成绩！</p>
+            <p>期中考试成绩已发布，点击高一年组成绩查询，输入正确信息方可查询成绩，祝所有考生取得好成绩！</p>
         </div>
         
         <div class="buttons">
-            <button onclick="showContent('academic-performance')">高一全年组成绩查询</button>
+            <button onclick="showContent('academic-performance')">高一年组成绩查询</button>
             <button onclick="gotoPsychological()">智能心理测量系统</button>
             <button onclick="showContent('school-info')">信息查询系统</button>
             <button onclick="showContent('student-performance')">学生赋分记录</button>
@@ -327,11 +327,11 @@
                 <ul>
                     <li>成绩查询功能仅提供大安市第六中学高一年组，参与考试的科目成绩进行查询。</li>
                     <li>进入网站后，班级编号处，一班输入"11"，二班输入"12"依次类推。</li>
-                    <li>网站同样支持班级排名，年组排名等。</li>
+                    <li>本次考试部分学生可能有科目为0分，经查看成绩单，属于成绩单上没有这科成绩。</li>
                     <li>如遇到问题，请向efhshf@qq.com发送邮件进行反馈</li>
                 </ul>
             </div>
-            <div class="countdown" id="academic-countdown">PASS</div>
+            <div class="countdown" id="academic-countdown">PASS(请认真阅读使用方法)</div>
             <div class="agreement-buttons">
                 <button id="academic-agree-btn" disabled>同意</button>
                 <button class="return-btn" onclick="showHome()">不同意</button>
@@ -461,9 +461,9 @@
         </div>
         <div id="info-content" class="hidden">
             <div class="buttons">
-                <button onclick="gotoURL('https://usebeaiwangphlj.netlify.app/')">高一信息</button>
-                <button onclick="gotoURL('https://usebeaiwangphlj2.netlify.app/')">高二信息</button>
-                <button onclick="gotoURL('https://usebeaiwangphlj3.netlify.app/')">高三信息</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj.netlify.app/')">高一信息(2024)</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj2.netlify.app/')">高二信息(2023)</button>
+                <button onclick="gotoURL('https://usebeaiwangphlj3.netlify.app/')">高三信息(2022)</button>
             </div>
             <button class="return-btn" onclick="showHome()">返回</button>
         </div>
@@ -573,7 +573,7 @@
                     disagreeButton.disabled = false;
                     agreeButton.classList.remove('disabled-btn'); // 移除灰色样式
                     disagreeButton.classList.remove('disabled-btn'); // 移除灰色样式
-                    countdownElement.textContent = 'PASS';
+                    countdownElement.textContent = 'PASS(请认真阅读使用方法)';
                 }
             }, 1000);
             
